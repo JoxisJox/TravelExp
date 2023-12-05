@@ -1,22 +1,27 @@
-import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
+import logo from './logo.svg';
+import './App.css';
+import AppName from "./components/app_name";
+import PromoHeader from './components/promo_header';
+import PromoFooter from './components/promo_footer';
+import background from './pics/landingPageBackground.jpg';
+import RegisterButton from './components/register_button';
+import LoginButton from './components/login_button';
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render() {
-    return (
-      <Layout>
-        <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
-        </Routes>
-      </Layout>
-    );
-  }
+function App(){
+  return (
+    <div style={{
+      backgroundImage: `url(${background})`,
+      backgroundSize: "100% 100%",
+      minHeight: "100vh",
+      height: '100%',
+      }}>
+      <AppName />
+      <PromoHeader />
+      <PromoFooter />
+      <RegisterButton />
+      <LoginButton />
+    </div>
+  )
 }
+
+export default App;
